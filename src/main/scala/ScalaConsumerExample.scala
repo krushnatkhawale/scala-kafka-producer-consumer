@@ -1,8 +1,6 @@
 import java.util.concurrent._
 import java.util.{Collections, Properties}
 
-import kafka.consumer.KafkaStream
-import kafka.utils.Logging
 import org.apache.kafka.clients.consumer.{ConsumerConfig, KafkaConsumer}
 
 import scala.collection.JavaConversions._
@@ -37,13 +35,17 @@ class ScalaConsumerExample(val brokers: String,
   def run() = {
     consumer.subscribe(Collections.singletonList(this.topic))
 
-    Executors.newSingleThreadExecutor.execute(    new Runnable {
+    Executors.newSingleThreadExecutor.execute(new Runnable {
       override def run(): Unit = {
         while (true) {
           val records = consumer.poll(1000)
 
           for (record <- records) {
-            System.out.println("Received message: (" + record.key() + ", " + record.value() + ") at offset " + record.offset())
+            System.out.println("Received message: (" + record.key() + ") at offset " + record.offset())
+            System.out.println()
+            System.out.println(record.value())
+            System.out.println()
+
           }
         }
       }
