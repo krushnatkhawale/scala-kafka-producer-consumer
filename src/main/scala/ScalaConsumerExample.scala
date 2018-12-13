@@ -54,6 +54,6 @@ class ScalaConsumerExample(val brokers: String,
 }
 
 object ScalaConsumerExample extends App {
-  val example = new ScalaConsumerExample(args(0), args(1), args(2))
+  val example = new ScalaConsumerExample("ec2-35-159-32-107.eu-central-1.compute.amazonaws.com:9092", "group1", "fraud_messages_1")
   example.run()
 }
