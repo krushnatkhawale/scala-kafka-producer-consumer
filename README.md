@@ -62,3 +62,14 @@ Received message: (1544790908500) at offset 257
 "transTime" : "00:12:15", "unixTime" : 1325376735, "category" : "personal_care", 
 "merchant" : "Hills-Boyer", "amount" : 64.0, "merchLatitude" : 51.41097, "merchLongitude" : -0.83493}
 ```
+
+# Amazon EC2 Kafka setup
+
+```bash
+[ec2-user@ip-172-31-7-25 kafka_2.11-2.1.0]$ bin/kafka-console-consumer.sh --bootstrap-server ip-172-31-7-25.eu-central-1.compute.internal:9092 --topic fraud_messages_1 --from-beginning | grep Martyn
+{"customerId" : "180094108369013", "firstName" : "Martyn", "lastName" : "Lewis", "transNum" : "80f5177be11f0bcd768e06a0b1b294c8", "transDate" : "2012-01-01T00:00:00.000+05:30", "transTime" : "00:12:15", "unixTime" : 1325376735, "category" : "personal_care", "merchant" : "Hills-Boyer", "amount" : 64.0, "merchLatitude" : 51.41097, "merchLongitude" : -0.83493}
+{"customerId" : "180094108369013", "firstName" : "Martyn", "lastName" : "Lewis", "transNum" : "80f5177be11f0bcd768e06a0b1b294c8", "transDate" : "2012-01-01T00:00:00.000+05:30", "transTime" : "00:12:15", "unixTime" : 1325376735, "category" : "personal_care", "merchant" : "Hills-Boyer", "amount" : 64.0, "merchLatitude" : 51.41097, "merchLongitude" : -0.83493}
+{"customerId" : "180094108369013", "firstName" : "Martyn", "lastName" : "Lewis", "transNum" : "80f5177be11f0bcd768e06a0b1b294c8", "transDate" : "2012-01-01T00:00:00.000+05:30", "transTime" : "00:12:15", "unixTime" : 1325376735, "category" : "personal_care", "merchant" : "Hills-Boyer", "amount" : 64.0, "merchLatitude" : 51.41097, "merchLongitude" : -0.83493}
+{"customerId" : "180094108369013", "firstName" : "Martyn", "lastName" : "Lewis", "transNum" : "80f5177be11f0bcd768e06a0b1b294c8", "transDate" : "2012-01-01T00:00:00.000+05:30", "transTime" : "00:12:15", "unixTime" : 1325376735, "category" : "personal_care", "merchant" : "Hills-Boyer", "amount" : 64.0, "merchLatitude" : 51.41097, "merchLongitude" : -0.83493}
+^CProcessed a total of 258 messages
+```
