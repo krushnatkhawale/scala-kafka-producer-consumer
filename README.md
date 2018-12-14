@@ -1,3 +1,21 @@
+# Amazon EC2 Kafka setup
+
+```bash
+ssh -i "demo.pem" ec2-user@ec2-35-159-32-107.eu-central-1.compute.amazonaws.com
+Last login: Fri Dec 14 12:44:12 2018 from 82-132-231-27.dab.02.net
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2018.03-release-notes/
+[ec2-user@ip-172-31-7-25 ~]$ grep "9092" /opt/kafka_2.11-2.1.0/config/server.properties 
+#     listeners = PLAINTEXT://your.host.name:9092
+listeners=PLAINTEXT://ec2-35-159-32-107.eu-central-1.compute.amazonaws.com:9092
+#advertised.listeners=PLAINTEXT://your.host.name:9092
+[ec2-user@ip-172-31-7-25 ~]$ 
+```
+
 # Kafka Producer
 
 ```javascript
